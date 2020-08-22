@@ -6,8 +6,11 @@ import { requestCreateCard } from "state/createCard/actions";
 import { CreateCardSelector } from "state/createCard/selectors";
 // Components
 import CreateCardForm from "components/CreateCard/CreateCardForm";
+import TopNavbar from "components/_shared/TopNavbar";
+
 // Styles
 import "./index.scss";
+import { Fragment } from "react";
 
 const CreateCardView = () => {
 	const [payload, setPayload] = useState(null);
@@ -30,9 +33,11 @@ const CreateCardView = () => {
 	}, [data, loading, error, history]);
 
 	return (
-		<div className="create-card-container">
-			<h1>Agregar artículo</h1>
-			<CreateCardForm setPayload={setPayload} />
+		<div className="main-container">
+			<TopNavbar />
+			<div className="create-card-container">
+				<CreateCardForm setPayload={setPayload} />
+			</div>
 		</div>
 	);
 };

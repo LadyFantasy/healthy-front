@@ -47,6 +47,7 @@ const CreateCardForm = ({ setPayload }) => {
 			{errors.title && errors.title.type === "maxLength" && <p>Max length is 30</p>}
 
 			<label>Categorías</label>
+
 			<select className="select" name="categoria">
 				<option>Rutinas</option>
 				<option>Alimentacion</option>

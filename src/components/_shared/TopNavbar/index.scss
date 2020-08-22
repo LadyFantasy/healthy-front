@@ -1,0 +1,21 @@
+@import "theme";
+
+.topnavbar-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: $darker-blue;
+    padding: $s-1 $s0;
+}
+
+button {
+    border: none;
+    background: transparent;
+    color: $yellow;
+    font-size: $s1;
+    padding: 0;
+}
+
+h3 {
+    color: $ivory;
+}
