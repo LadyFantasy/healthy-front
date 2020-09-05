@@ -4,12 +4,11 @@
 	width: 100%;
 	
 	.input {
-		margin: $s1 0;
+		margin: $s0 0;
 		width: 100%;
 		
 		label {
 			font-size: $s0;
-			font-weight: 500;
 			color: $ivory;
 		}
 	
@@ -18,13 +17,11 @@
 			border-radius: $radius-1;
 			font-family: $font-plain;
 			border: none;
-			font-size: $s0;
+			font-size: $s-1;
 			background-color: $medium-grey;
 			color: $ivory;
 			padding: $s-1;
 			margin-top: $s-2;
-			margin-bottom: $s-3;
-			box-shadow: 0 0 4px rgba(255, 255, 255, 0.562);
 			
 			&::placeholder { 
 				color: $light-grey;
