@@ -14,6 +14,7 @@ import Profile from "containers/Profile";
 import EditCard from "containers/EditCard";
 import ErrorPage from "containers/ErrorPage";
 import EditProfile from "containers/EditProfile";
+import RecoverPassword from "containers/RecoverPassword";
 
 /* import ThemeProvider from "components/_utils/ThemeProvider"; */
 
@@ -32,6 +33,7 @@ const App = () => (
 				<CreateCardView />
 				<Login />
 				<ErrorPage />
+				<RecoverPassword />
 			</BrowserRouter>
 		</ConnectedRouter>
 	</Provider>
