@@ -1,6 +1,6 @@
 @import "theme";
 
-.login-container {
+.recover-container {
 	position: relative;
 	display: flex;
 	height: 100vh;
@@ -27,7 +27,7 @@
 			rgba(4, 26, 47, 1),
 			rgba(4, 26, 47, 1)
 		),
-		url("../../assets/img/login-background.png");
+		url("../../assets/img/recover-background.png");
 	background-repeat: no-repeat;
 	background-size: contain;
 	h1 {
@@ -43,23 +43,21 @@
 			font-weight: 400;
 		}
 	}
-
-	footer {
-		width: 100%;
+	.recover-content {
 		display: flex;
+		flex-direction: column;
+		height: 65%;
 		justify-content: space-between;
-		p {
-			color: $light-grey;
-			font-size: $s-1;
-			margin-bottom: $s-2;
-			margin-top: $s-2;
-		}
-		.button__link {
-			color: $yellow;
-			font-size: $s-1;
-			margin-bottom: $s-2;
-			margin-top: $s-2;
-			cursor: pointer;
+		margin-bottom: $s1;
+		.recover-text {
+			h2 {
+				margin-top: $s1;
+				font-weight: 700;
+				text-shadow: 0px 0px 15px black;
+			}
+			p {
+				margin-top: $s0;
+			}
 		}
 	}
 }

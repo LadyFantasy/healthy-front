@@ -14,7 +14,7 @@ const RecoverPasswordView = () => {
 	const history = useHistory();
 
 	return (
-		<div className="login-container">
+		<div className="recover-container">
 			{/* 			{error ? (
 				<Alert showButtonClose error>
 					Disculpa, no pudimos loguear tu usuario con esa información.{" "}
@@ -26,17 +26,16 @@ const RecoverPasswordView = () => {
 			<h1>
 				<span className="healthy">Healthy</span> <span className="dev">Dev</span>
 			</h1>
-			<RecoverPassword />
-			<footer>
-				<p>¿Todavía no tenés una cuenta?</p>
-				<p
-					role="button"
-					className="button__link"
-					onClick={() => history.push("/register")}
-				>
-					Registrate
-				</p>
-			</footer>
+			<div className="recover-content">
+				<div className="recover-text">
+					<h2>Recuperá tu contraseña</h2>
+					<p>
+						Ingresá el email asociado a tu cuenta y te mandaremos un mensaje con un link
+						para cambiar tu contraseña
+					</p>
+				</div>
+				<RecoverPassword />
+			</div>
 		</div>
 	);
 };
