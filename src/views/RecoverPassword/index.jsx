@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-// Redux
-import { useDispatch, useSelector } from "react-redux";
-/* import { requestLogin } from "state/login/actions";
-import { LoginSelector } from "state/login/selectors"; */
 // Components
 import RecoverPassword from "components/RecoverPassword";
 import Alert from "components/_shared/Alert";
@@ -12,6 +8,9 @@ import "./index.scss";
 
 const RecoverPasswordView = () => {
 	const history = useHistory();
+	const [email, setEmail] = useState(null);
+
+	useEffect(() => {}, [email, setEmail]);
 
 	return (
 		<div className="recover-container">
