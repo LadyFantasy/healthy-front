@@ -11,6 +11,7 @@ import { requestDummy } from "state/dummy/actions";
 import { DummySelector } from "state/dummy/selectors";
 
 
+
 const AdminView = () => {
 	const d = useDispatch();
 	const { data, loading, error } = useSelector((state) => DummySelector(state));
@@ -18,19 +19,23 @@ const AdminView = () => {
 		d(requestDummy({ mensaje: "alo polisia" }));
 	}, [d]);
 
-	// useEffect(() => {
-	// 	if (error) console.log("ups, la cagamos con algo");
-	// 	if (loading) console.log("estamos esperando que termine la request :D");
-	// 	if (!loading) console.log("ya no estamos esperando (?)");
-	// 	if (data) console.log("desde backend me llego esto:", data);
-	// }, [data, loading, error]);
+
+	useEffect(() => {
+		if (error) console.log("ups, la cagamos con algo");
+		if (loading) console.log("estamos esperando que termine la request :D");
+		if (!loading) console.log("ya no estamos esperando (?)");
+		if (data) console.log("desde backend me llego esto:", data);
+	}, [data, loading, error]);
 
 	return (
 		<>
 			<MyComponent />
-
+			{/*Default: */}
+			<Button className="MyComponent-buttons"> Button</Button>
 			{/*Disabled: */}
-			<Button className="MyC"></Button>
+			<Button className="MyComponent-buttons" disabled={true}>
+				Button
+			</Button>
 			{/*Outlined variant: */}
 			<Button className="MyComponent-buttons" outlined={true}>
 				Button
@@ -46,4 +51,5 @@ const AdminView = () => {
 		</>
 	);
 };
-export default AdminView
+
+export default AdminView;

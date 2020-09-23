@@ -1,50 +1,28 @@
-import { fakeFetchModule, TYPES, METHODS } from "./utils";
-
-export { TYPES };
+import { fakeFetchModule } from "./utils";
 
 // Modulo fakeBackend
 export const fakeHttpModule = {
-	async get(url, token, payload = undefined, type = TYPES.default) {
+	async get(url, token) {
 		try {
-			const { response, data } = await fakeFetchModule(
-				url,
-				token,
-				METHODS.get,
-				payload,
-				type,
-			);
+			const { response, data } = await fakeFetchModule(url, token);
 			return { response, data };
 		} catch (error) {
 			console.log(`fakeHttpModule error [GET] -> ${error}`);
 		}
 	},
 	// Payload tiene que tener JSON.stringify(payload)
-	async post(url, token, payload, type = TYPES.default) {
-		// TODO: quitar console.log
-		console.log("inicio de request: ", url, token, payload);
+	async post(url, token, payload, json = false) {
 		try {
-			const { response, data } = await fakeFetchModule(
-				url,
-				token,
-				METHODS.post,
-				payload,
-				type,
-			);
+			const { response, data } = await fakeFetchModule(url, token, "POST", payload, json);
 			return { response, data };
 		} catch (error) {
 			console.log(`fakeHttpModule error [POST]-> ${error}`);
 		}
 	},
 	// Payload tiene que tener JSON.stringify(payload)
-	async put(url, token, payload, type = TYPES.default) {
+	async put(url, token, payload, json = false) {
 		try {
-			const { response, data } = await fakeFetchModule(
-				url,
-				token,
-				METHODS.put,
-				payload,
-				type,
-			);
+			const { response, data } = await fakeFetchModule(url, token, "PUT", payload, json);
 			return { response, data };
 		} catch (error) {
 			console.log(`fakeHttpModule error [PUT] -> ${error}`);
@@ -52,7 +30,7 @@ export const fakeHttpModule = {
 	},
 	async delete(url, token) {
 		try {
-			const { response, data } = await fakeFetchModule(url, token, METHODS.delete);
+			const { response, data } = await fakeFetchModule(url, token, "DELETE");
 			return { response, data };
 		} catch (error) {
 			console.log(`httpModule error [DELETE] -> ${error}`);

@@ -1,11 +1,15 @@
 import React, { useEffect } from "react";
+
 import Card from "../../components/CardDetails/Card";
+
+//Router
 import { useParams } from "react-router-dom";
 
-import Loading from "components/_shared/Loading"
-
+//Redux
 import { useDispatch, useSelector } from "react-redux";
 import { requestDetails } from "state/cardDetails/actions";
+
+//Selector
 import { CardDetailsSelector } from "state/cardDetails/selectors";
 
 const CardDetailsView = () => {
@@ -15,15 +19,16 @@ const CardDetailsView = () => {
 
 	useEffect(() => {
 		d(requestDetails({ url: `v1/cards/${cardId}` }));
-	}, [d, cardId]);
+	}, [d]);
+	console.log(data);
+	useEffect(() => {
+		if (error) console.log("ups, la cagamos con algo");
+		if (loading) console.log("estamos esperando que termine la request :D");
+		if (!loading) console.log("ya no estamos esperando (?)");
+		if (data) console.log("desde backend me llego esto:", data);
+	}, [data, loading, error]);
 
-	return (
-		<div className="card__detail">
-			{error && <p>No se encontro lo que busacas...</p>}
-			{loading && <Loading />}
-			{data && <Card data={data} />}
-		</div>
-	);
+	return <Card data={data} />;
 };
 
 export default CardDetailsView;
