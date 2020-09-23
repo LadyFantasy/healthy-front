@@ -33,7 +33,7 @@ const RecoverPasswordView = () => {
 						para cambiar tu contraseña
 					</p>
 				</div>
-				<RecoverPassword />
+				<RecoverPassword setEmail={setEmail} />
 			</div>
 		</div>
 	);
