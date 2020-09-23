@@ -17,19 +17,26 @@ const RecoverPassword = ({ setEmail }) => {
 		setEmail(email);
 	};
 
+	const EMAIL_FORMAT = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
+
 	return (
 		<form className="form__login" autoComplete="on" onSubmit={handleSubmit(onSubmit)}>
-			<label className="user-input" name="usernameOrEmail">
-				Email/Usuario
+			<label className="user-input" name="email">
+				Email
 				<input
-					type="text"
-					name="usernameOrEmail"
+					type="email"
+					name="email"
 					placeholder="ejemplo@healthydev.com"
-					ref={register({ required: true, maxLength: 100, minLength: 4 })}
+					ref={register({
+						required: true,
+						maxLength: 100,
+						minLength: 4,
+						pattern: EMAIL_FORMAT,
+					})}
 				/>
 			</label>
 			{errors.usernameOrEmail && errors.usernameOrEmail.type === "required" && (
-				<MessageError message="Ingrese su usuario o email." />
+				<MessageError message="Ingrese su email." />
 			)}
 			{errors.usernameOrEmail && errors.usernameOrEmail.type === "maxLength" && (
 				<MessageError message="Máximo 100 caracteres." />
