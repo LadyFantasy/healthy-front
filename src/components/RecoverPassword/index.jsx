@@ -9,17 +9,12 @@ import "./index.scss";
 import Button from "../_shared/Button";
 import MessageError from "./MessageError";
 
-const RecoverPassword = ({ sendLogin }) => {
+const RecoverPassword = ({ setEmail }) => {
 	const { register, handleSubmit, errors } = useForm();
 	const history = useHistory();
 
-	const onSubmit = async ({ usernameOrEmail, password }) => {
-		sendLogin(
-			JSON.stringify({
-				usernameOrEmail,
-				password,
-			}),
-		);
+	const onSubmit = ({ email }) => {
+		setEmail(email);
 	};
 
 	return (
