@@ -10,7 +10,9 @@ const RecoverPasswordView = () => {
 	const history = useHistory();
 	const [email, setEmail] = useState(null);
 
-	useEffect(() => {}, [email, setEmail]);
+	useEffect(() => {
+		// TODO: Fetch user with email, response if email exists or not
+	}, [email, setEmail]);
 
 	return (
 		<div className="recover-container">
